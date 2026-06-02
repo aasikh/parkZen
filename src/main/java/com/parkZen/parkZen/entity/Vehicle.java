@@ -3,23 +3,36 @@ package com.parkZen.parkZen.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "Vehicle")
-
+@Table(name = "vehicle")
 public class Vehicle {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column()
-    private String Vehicle_Number;
-    private Enum Vehicle_Type;
+    @Column(name = "vehicle_number", nullable = false, unique = true)
+    private String vehicleNumber;
 
-    public Vehicle(int id, String Vehicle_Number, Enum Vehicle_Type){
-        this.id = id;
-        this.Vehicle_Number = Vehicle_Number;
-        this.Vehicle_Type = Vehicle_Type;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "vehicle_type", nullable = false)
+    private VehicleType vehicleType;
 
+    // Enum defined inside the class
+    public enum VehicleType {
+        CAR,
+        BIKE,
+        TRUCK
     }
+
+    // Default constructor required by JPA
+    public Vehicle() {
+    }
+
+    public Vehicle(String vehicleNumber, VehicleType vehicleType) {
+        this.vehicleNumber = vehicleNumber;
+        this.vehicleType = vehicleType;
+    }
+
     public int getId() {
         return id;
     }
@@ -28,19 +41,19 @@ public class Vehicle {
         this.id = id;
     }
 
-    public String getVehicle_Number() {
-        return Vehicle_Number;
+    public String getVehicleNumber() {
+        return vehicleNumber;
     }
 
-    public void setVehicle_Number(String vehicle_Number) {
-        Vehicle_Number = vehicle_Number;
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
     }
 
-    public String getVehicle_Type() {
-        return Vehicle_Type;
+    public VehicleType getVehicleType() {
+        return vehicleType;
     }
 
-    public void setVehicle_Type(String vehicle_Type) {
-        Vehicle_Type = vehicle_Type;
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 }
