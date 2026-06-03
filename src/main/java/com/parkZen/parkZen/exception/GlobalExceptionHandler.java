@@ -28,4 +28,20 @@ public class GlobalExceptionHandler extends RuntimeException {
                .status(HttpStatus.BAD_REQUEST)
                .body(error);
     }
+    @ExceptionHandler(TicketInvalid.class)
+    public ResponseEntity<Map <String, String >> handleTypeMismatched(TicketInvalid ex){
+        Map <String , String > error = new HashMap<>();
+        error.put("error" , ex.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(error);
+    }
+    @ExceptionHandler(VehicleAlreadyExit.class)
+    public ResponseEntity<Map <String, String >> handleTypeMismatched(VehicleAlreadyExit ex){
+        Map <String , String > error = new HashMap<>();
+        error.put("error" , ex.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(error);
+    }
 }
