@@ -10,6 +10,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler extends RuntimeException {
 
+    //handle slot fulled
 @ExceptionHandler(SlotNotAvailable.class)
     public ResponseEntity<Map<String, String>> handleSlotNotAvailable(SlotNotAvailable ex){
     Map<String, String> error = new HashMap<>();
@@ -17,5 +18,14 @@ public class GlobalExceptionHandler extends RuntimeException {
     return ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
             .body(error);
+    }
+    //handle user send wrong data type
+    @ExceptionHandler(VehicleNumberAndTypeMismatched.class)
+    public ResponseEntity<Map <String, String >> handleTypeMismatched(VehicleNumberAndTypeMismatched ex){
+       Map <String , String > error = new HashMap<>();
+       error.put("error" , ex.getMessage());
+       return ResponseEntity
+               .status(HttpStatus.BAD_REQUEST)
+               .body(error);
     }
 }
