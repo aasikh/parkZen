@@ -45,3 +45,4 @@ public class GlobalExceptionHandler extends RuntimeException {
                 .body(error);
     }
 }
+// i added some code for testing only
