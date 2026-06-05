@@ -10,6 +10,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler extends RuntimeException {
 
+    //handle slot fulled
 @ExceptionHandler(SlotNotAvailable.class)
     public ResponseEntity<Map<String, String>> handleSlotNotAvailable(SlotNotAvailable ex){
     Map<String, String> error = new HashMap<>();
@@ -18,4 +19,30 @@ public class GlobalExceptionHandler extends RuntimeException {
             .status(HttpStatus.BAD_REQUEST)
             .body(error);
     }
+    //handle user send wrong data type
+    @ExceptionHandler(VehicleNumberAndTypeMismatched.class)
+    public ResponseEntity<Map <String, String >> handleTypeMismatched(VehicleNumberAndTypeMismatched ex){
+       Map <String , String > error = new HashMap<>();
+       error.put("error" , ex.getMessage());
+       return ResponseEntity
+               .status(HttpStatus.BAD_REQUEST)
+               .body(error);
+    }
+    @ExceptionHandler(TicketInvalid.class)
+    public ResponseEntity<Map <String, String >> handleTypeMismatched(TicketInvalid ex){
+        Map <String , String > error = new HashMap<>();
+        error.put("error" , ex.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(error);
+    }
+    @ExceptionHandler(VehicleAlreadyExit.class)
+    public ResponseEntity<Map <String, String >> handleTypeMismatched(VehicleAlreadyExit ex){
+        Map <String , String > error = new HashMap<>();
+        error.put("error" , ex.getMessage());
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(error);
+    }
 }
+// i added some code for testing only
