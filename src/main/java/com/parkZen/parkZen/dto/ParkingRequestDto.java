@@ -1,6 +1,6 @@
 package com.parkZen.parkZen.dto;
 
-public class VehicleRequestDto {
+public class ParkingRequestDto {
 private String vehicleNumber;
 private enum VehicleType{
     CAR,
@@ -8,7 +8,7 @@ private enum VehicleType{
     TRUCK
 }
 private VehicleType vehicleType;
-public VehicleRequestDto(String vehicleNumber, VehicleType vehicleType){
+public ParkingRequestDto(String vehicleNumber, VehicleType vehicleType){
     this.vehicleNumber = vehicleNumber;
     this.vehicleType = vehicleType;
 }
