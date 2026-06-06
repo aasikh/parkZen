@@ -1,8 +1,6 @@
 package com.parkZen.parkZen.dto;
 
-import java.time.LocalDateTime;
-
-public class VehicleResponseDto {
+public class ParkingResponseDto {
 
     private Long ticketId;
     private String vehicleNumber;
@@ -15,7 +13,7 @@ public class VehicleResponseDto {
     }
     private Status status;
 
-    public VehicleResponseDto(Long ticketId, String vehicleNumber, Long slotId, String entryTime, Status status){
+    public ParkingResponseDto(Long ticketId, String vehicleNumber, Long slotId, String entryTime, Status status){
         this.ticketId = ticketId;
         this.vehicleNumber = vehicleNumber;
         this.slotId = slotId;
