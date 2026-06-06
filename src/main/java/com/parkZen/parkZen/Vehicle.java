@@ -1,8 +1,13 @@
 package com.parkZen.parkZen;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
 public class Vehicle {
 
-    private int id;
+    private long id;
     private String vehicleType;
     private String vehicleNumber;
 
@@ -15,14 +20,14 @@ public class Vehicle {
     public Vehicle(){
     }
 
-    public Vehicle(int id, String vehicleType, String vehicleNumber){
+    public Vehicle(long id, String vehicleType, String vehicleNumber){
         this.id = id;
         this.vehicleType = vehicleType;
         this.vehicleNumber = vehicleNumber;
     }
 
     public int getId() {
-        return id;
+        return Math.toIntExact(id);
     }
 
     public void setId(int id) {
@@ -46,12 +51,4 @@ public class Vehicle {
     }
 
 
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "id=" + id +
-                ", vehicleType=" + vehicleType +
-                ", vehicleNumber='" + vehicleNumber + '\'' +
-                '}';
-    }
 }
