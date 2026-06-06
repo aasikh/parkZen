@@ -8,21 +8,15 @@ public class Vehicle {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String vehicleNumber;
     private Enum vehicleType;
-
-    public Vehicle(int id, String Vehicle_Number, Enum vehicleType){
+    public Vehicle(Long id, String vehicleNumber, Enum vehicleType) {
         this.id = id;
-    @Column(name = "vehicle_number", nullable = false, unique = true)
-    private String vehicleNumber;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "vehicle_type", nullable = false)
-    private VehicleType vehicleType;
-
-    // Enum defined inside the class
+        this.vehicleType = vehicleType;
+        this.vehicleNumber = vehicleNumber;
+    }
     public enum VehicleType {
         CAR,
         BIKE,
@@ -38,11 +32,11 @@ public class Vehicle {
         this.vehicleType = vehicleType;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,20 +54,5 @@ public class Vehicle {
 
     public void setVehicleNumber(String vehicleNumber) {
         this.vehicleNumber = vehicleNumber;
-    public String getVehicleNumber() {
-        return vehicleNumber;
-    }
-
-    public void setVehicleNumber(String vehicleNumber) {
-        this.vehicleNumber = vehicleNumber;
-    }
-
-    public VehicleType getVehicleType() {
-        return vehicleType;
-    }
-
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
-
     }
 }
