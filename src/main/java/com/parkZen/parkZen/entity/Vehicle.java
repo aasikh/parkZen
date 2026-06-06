@@ -10,6 +10,11 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String vehicleNumber;
+    private Enum vehicleType;
+
+    public Vehicle(int id, String Vehicle_Number, Enum vehicleType){
+        this.id = id;
     @Column(name = "vehicle_number", nullable = false, unique = true)
     private String vehicleNumber;
 
@@ -41,6 +46,20 @@ public class Vehicle {
         this.id = id;
     }
 
+    public Enum getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(Enum vehicleType) {
+        this.vehicleType = vehicleType;
+    }
+
+    public String getVehicleNumber() {
+        return vehicleNumber;
+    }
+
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
     public String getVehicleNumber() {
         return vehicleNumber;
     }
@@ -55,5 +74,6 @@ public class Vehicle {
 
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
+
     }
 }
