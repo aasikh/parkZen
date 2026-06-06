@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 @Table
 public class Vehicle {
 
-    private long id;
+    private Long id;
     private String vehicleType;
     private String vehicleNumber;
 
@@ -20,17 +20,17 @@ public class Vehicle {
     public Vehicle(){
     }
 
-    public Vehicle(long id, String vehicleType, String vehicleNumber){
+    public Vehicle(Long id, String vehicleType, String vehicleNumber){
         this.id = id;
         this.vehicleType = vehicleType;
         this.vehicleNumber = vehicleNumber;
     }
 
-    public int getId() {
-        return Math.toIntExact(id);
+    public Long getId() {
+        return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
