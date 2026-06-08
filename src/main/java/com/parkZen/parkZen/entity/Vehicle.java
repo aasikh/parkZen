@@ -1,4 +1,4 @@
-package com.parkZen.parkZen.entity;
+package com.parkZen.parkZen.Entity;
 
 import jakarta.persistence.*;
 
