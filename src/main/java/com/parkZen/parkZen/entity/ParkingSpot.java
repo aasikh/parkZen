@@ -3,8 +3,8 @@ package com.parkZen.parkZen.Entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "parking_lot")
-public class ParkingLot {
+@Table(name = "parking_Spot")
+public class ParkingSpot {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,21 +13,21 @@ public class ParkingLot {
     private String parkingNumber;
 
     @Enumerated(EnumType.STRING)
-    private Enum parkingType;
+    private ParkingType parkingType;
 
-    public enum parkingType {
+    public enum ParkingType {
         CAR,
         BIKE,
         TRUCK
     }
 
-    public ParkingLot() {
+    public ParkingSpot() {
     }
 
-    public ParkingLot(Long id, String parkingNumber, Enum parkingType) {
+    public ParkingSpot(Long id, String parkingNumber, Enum parkingType) {
         this.id = id;
         this.parkingNumber = parkingNumber;
-        this.parkingType = parkingType;
+        this.parkingType = (ParkingType) parkingType;
     }
 
     public Long getId() {
@@ -51,6 +51,6 @@ public class ParkingLot {
     }
 
     public void setParkingType(Enum parkingType) {
-        this.parkingType = parkingType;
+        this.parkingType = (ParkingType) parkingType;
     }
 }
